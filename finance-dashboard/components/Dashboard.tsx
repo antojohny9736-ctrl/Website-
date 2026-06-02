@@ -9,7 +9,17 @@ import {
   TrendUpIcon, PieChartIcon, ArrowCircle, CheckCircle,
 } from "./Icons";
 
-const CARD = "border border-white/10 rounded-xl bg-[#111111] p-4";
+/* Deep Sea palette tokens */
+const DS = {
+  bg:      "#0D1B2A",
+  surface: "#1B263B",
+  accent:  "#415A77",
+  muted:   "#778DA9",
+  text:    "#E0E1DD",
+} as const;
+
+const CARD = `border rounded-xl p-4` +
+  ` border-[#415A77]/40 bg-[#1B263B]`;
 
 function Card({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return <div className={`${CARD} ${className}`}>{children}</div>;
@@ -17,7 +27,7 @@ function Card({ children, className = "" }: { children: React.ReactNode; classNa
 
 function Label({ children }: { children: React.ReactNode }) {
   return (
-    <p className="font-mono-dm text-[10px] tracking-[0.18em] uppercase text-white/50 mb-1">
+    <p className="font-mono-dm text-[10px] tracking-[0.18em] uppercase text-[#778DA9] mb-1">
       {children}
     </p>
   );
@@ -25,23 +35,23 @@ function Label({ children }: { children: React.ReactNode }) {
 
 function Value({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
-    <p className={`font-bebas text-3xl tracking-wide text-white ${className}`}>
+    <p className={`font-bebas text-3xl tracking-wide text-[#E0E1DD] ${className}`}>
       {children}
     </p>
   );
 }
 
 function SmallValue({ children }: { children: React.ReactNode }) {
-  return <p className="font-bebas text-xl tracking-wide text-white">{children}</p>;
+  return <p className="font-bebas text-xl tracking-wide text-[#E0E1DD]">{children}</p>;
 }
 
 /* ── Pie chart SVG ── */
 function PieChart() {
   const segments = [
-    { pct: 60, color: "white", opacity: 1 },
-    { pct: 25, color: "white", opacity: 0.55 },
-    { pct: 10, color: "white", opacity: 0.28 },
-    { pct: 5,  color: "white", opacity: 0.1 },
+    { pct: 60, color: "#778DA9", opacity: 1 },
+    { pct: 25, color: "#415A77", opacity: 1 },
+    { pct: 10, color: "#1B263B", opacity: 1 },
+    { pct: 5,  color: "#0D1B2A", opacity: 1 },
   ];
   const r = 40;
   const cx = 50;
@@ -64,7 +74,7 @@ function PieChart() {
   return (
     <svg width="100" height="100" viewBox="0 0 100 100">
       {segments.map((s, i) => (
-        <path key={i} d={arc(s.pct)} fill={s.color} opacity={s.opacity} stroke="#111" strokeWidth="1" />
+        <path key={i} d={arc(s.pct)} fill={s.color} opacity={s.opacity} stroke="#0D1B2A" strokeWidth="1.5" />
       ))}
     </svg>
   );
@@ -74,10 +84,10 @@ function PieChart() {
 function ProgressBar({ value }: { value: number }) {
   return (
     <div className="mt-2 flex items-center gap-2">
-      <div className="flex-1 h-[6px] bg-white/10 rounded-full overflow-hidden">
-        <div className="h-full bg-white rounded-full" style={{ width: `${value}%` }} />
+      <div className="flex-1 h-[6px] bg-[#415A77]/20 rounded-full overflow-hidden">
+        <div className="h-full bg-[#778DA9] rounded-full" style={{ width: `${value}%` }} />
       </div>
-      <span className="font-mono-dm text-xs text-white/60">{value}%</span>
+      <span className="font-mono-dm text-xs text-[#778DA9]">{value}%</span>
     </div>
   );
 }
@@ -88,11 +98,11 @@ function CycleDiagram() {
     <div className="relative flex items-center justify-center" style={{ width: 160, height: 160 }}>
       <ArrowCircle size={160} />
       <div className="absolute top-2 left-1/2 -translate-x-1/2 text-center">
-        <p className="font-mono-dm text-[9px] text-white/50 uppercase tracking-widest">INCOME</p>
+        <p className="font-mono-dm text-[9px] text-[#778DA9] uppercase tracking-widest">INCOME</p>
         <p className="font-bebas text-lg">$5,600</p>
       </div>
       <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-center">
-        <p className="font-mono-dm text-[9px] text-white/50 uppercase tracking-widest">BILLS</p>
+        <p className="font-mono-dm text-[9px] text-[#778DA9] uppercase tracking-widest">BILLS</p>
         <p className="font-bebas text-lg">$2,150</p>
       </div>
       <div className="absolute left-0 top-1/2 -translate-y-1/2 text-center">
@@ -111,9 +121,9 @@ function BottomStat({ icon, label, value, sub }: { icon: React.ReactNode; label:
     <div className="flex items-center gap-3">
       <div className="opacity-80">{icon}</div>
       <div>
-        <p className="font-mono-dm text-[10px] uppercase tracking-widest text-white/50">{label}</p>
+        <p className="font-mono-dm text-[10px] uppercase tracking-widest text-[#778DA9]">{label}</p>
         <p className="font-bebas text-2xl leading-none">{value}</p>
-        <p className="font-mono-dm text-[10px] text-white/40 mt-0.5">{sub}</p>
+        <p className="font-mono-dm text-[10px] text-[#778DA9]/60 mt-0.5">{sub}</p>
       </div>
     </div>
   );
@@ -142,7 +152,7 @@ export default function Dashboard() {
   const A = animated.div;
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] p-5 select-none">
+    <div className="min-h-screen bg-[#0D1B2A] p-5 select-none">
       {/* ═══════════ MAIN GRID ═══════════ */}
       <div
         className="grid gap-3"
@@ -157,7 +167,7 @@ export default function Dashboard() {
         <A style={trail[0]} className={CARD}>
           <div className="flex justify-between items-start">
             <div>
-              <p className="font-bebas text-2xl tracking-widest text-white/90 mb-3">DEBT</p>
+              <p className="font-bebas text-2xl tracking-widest text-[#E0E1DD] mb-3">DEBT</p>
               <Label>Total Debt</Label>
               <Value>$12,450</Value>
               <Label>Due This Month</Label>
@@ -171,7 +181,7 @@ export default function Dashboard() {
         <A style={trail[1]} className={CARD}>
           <div className="flex justify-between items-start">
             <div>
-              <p className="font-bebas text-2xl tracking-widest text-white/90 mb-3">EXPENSES</p>
+              <p className="font-bebas text-2xl tracking-widest text-[#E0E1DD] mb-3">EXPENSES</p>
               <Label>This Month</Label>
               <Value>$3,240</Value>
             </div>
@@ -183,7 +193,7 @@ export default function Dashboard() {
         <A style={trail[2]} className={CARD}>
           <div className="flex justify-between items-start">
             <div>
-              <p className="font-bebas text-2xl tracking-widest text-white/90 mb-3">INVESTMENT</p>
+              <p className="font-bebas text-2xl tracking-widest text-[#E0E1DD] mb-3">INVESTMENT</p>
               <Label>Portfolio Value</Label>
               <Value>$24,780</Value>
             </div>
@@ -213,7 +223,7 @@ export default function Dashboard() {
 
         {/* SAVINGS */}
         <A style={trail[4]} className={CARD}>
-          <p className="font-bebas text-2xl tracking-widest text-white/90 mb-3">SAVINGS</p>
+          <p className="font-bebas text-2xl tracking-widest text-[#E0E1DD] mb-3">SAVINGS</p>
           <div className="flex gap-4 items-center">
             <PiggyBankIcon size={80} />
             <div className="flex-1">
@@ -230,15 +240,15 @@ export default function Dashboard() {
           style={{ ...heroSpring, gridColumn: "2 / 4", gridRow: "2" }}
           className="flex flex-col items-center justify-center py-6"
         >
-          <h1 className="font-bebas text-[9vw] leading-none tracking-widest text-white">
+          <h1 className="font-bebas text-[9vw] leading-none tracking-widest text-[#E0E1DD]">
             FINANCE
           </h1>
           <div className="flex items-center gap-3 mt-1">
-            <div className="h-px w-12 bg-white/30" />
-            <p className="font-mono-dm text-xs tracking-[0.3em] uppercase text-white/50">
+            <div className="h-px w-12 bg-[#415A77]/50" />
+            <p className="font-mono-dm text-xs tracking-[0.3em] uppercase text-[#778DA9]">
               Manage Today. Build Tomorrow.
             </p>
-            <div className="h-px w-12 bg-white/30" />
+            <div className="h-px w-12 bg-[#415A77]/50" />
           </div>
         </animated.div>
 
@@ -251,11 +261,11 @@ export default function Dashboard() {
 
         {/* FINANCIAL PLAN */}
         <A style={trail[6]} className={CARD}>
-          <p className="font-bebas text-2xl tracking-widest text-white/90 mb-3">FINANCIAL PLAN</p>
+          <p className="font-bebas text-2xl tracking-widest text-[#E0E1DD] mb-3">FINANCIAL PLAN</p>
           <ul className="space-y-2">
             {["Set Goals", "Budget Wisely", "Manage Risk", "Track Progress"].map((item, i) => (
-              <li key={i} className="flex items-center gap-2 font-mono-dm text-sm text-white/75">
-                <span className="text-white/40">{["⊙", "◷", "⊕", "↗"][i]}</span>
+              <li key={i} className="flex items-center gap-2 font-mono-dm text-sm text-[#E0E1DD]/80">
+                <span className="text-[#778DA9]/60">{["⊙", "◷", "⊕", "↗"][i]}</span>
                 {item}
               </li>
             ))}
@@ -264,27 +274,28 @@ export default function Dashboard() {
 
         {/* ASSET ALLOCATION */}
         <A style={trail[7]} className={CARD}>
-          <p className="font-mono-dm text-[10px] uppercase tracking-widest text-white/50 mb-3">
+          <p className="font-mono-dm text-[10px] uppercase tracking-widest text-[#778DA9] mb-3">
             Asset Allocation
           </p>
           <div className="flex items-center gap-4">
             <PieChart />
             <ul className="space-y-1.5">
               {[
-                { label: "Investment", pct: "60%", op: "opacity-100" },
-                { label: "Savings",    pct: "25%", op: "opacity-60" },
-                { label: "Income",     pct: "10%", op: "opacity-35" },
-                { label: "Tax",        pct: "5%",  op: "opacity-20" },
+                { label: "Investment", pct: "60%", swatch: "#778DA9" },
+                { label: "Savings",    pct: "25%", swatch: "#415A77" },
+                { label: "Income",     pct: "10%", swatch: "#1B263B" },
+                { label: "Tax",        pct: "5%",  swatch: "#0D1B2A" },
               ].map((s) => (
-                <li key={s.label} className={`flex gap-2 items-center font-mono-dm text-[11px] ${s.op}`}>
-                  <span className="w-2.5 h-2.5 bg-white rounded-sm inline-block" />
-                  <span>{s.pct}</span>
-                  <span className="text-white/60">{s.label}</span>
+                <li key={s.label} className="flex gap-2 items-center font-mono-dm text-[11px]">
+                  <span className="w-2.5 h-2.5 rounded-sm inline-block border border-[#415A77]/50" style={{ background: s.swatch }} />
+                  <span className="text-[#E0E1DD]">{s.pct}</span>
+                  <span className="text-[#778DA9]">{s.label}</span>
                 </li>
               ))}
             </ul>
           </div>
-          <button className="mt-4 w-full border border-white/20 rounded-lg py-2 font-bebas tracking-widest text-base text-white/80 hover:bg-white/5 transition-colors">
+          <button className="mt-4 w-full rounded-lg py-2 font-bebas tracking-widest text-base text-[#0D1B2A] transition-all hover:brightness-110"
+            style={{ background: "linear-gradient(135deg,#778DA9,#415A77)" }}>
             VIEW PLAN
           </button>
         </A>
@@ -296,7 +307,7 @@ export default function Dashboard() {
             <MagnifierIcon size={56} />
             <div>
               <p className="font-bebas text-base tracking-widest">ANALYSIS</p>
-              <p className="font-mono-dm text-[10px] text-white/50 leading-relaxed">Track. Review.<br />Improve.</p>
+              <p className="font-mono-dm text-[10px] text-[#778DA9] leading-relaxed">Track. Review.<br />Improve.</p>
             </div>
           </div>
 
@@ -312,19 +323,19 @@ export default function Dashboard() {
                 <SmallValue>$1,250</SmallValue>
               </div>
             </div>
-            <div className="flex items-center justify-between mt-3 text-white/50">
+            <div className="flex items-center justify-between mt-3 text-[#778DA9]">
               <div className="text-center">
                 <DollarCircleIcon size={26} />
                 <p className="font-mono-dm text-[9px] mt-1 uppercase tracking-wider">Income</p>
               </div>
-              <span className="text-white/25 text-lg">→</span>
+              <span className="text-[#E0E1DD]/25 text-lg">→</span>
               <div className="text-center">
-                <div className="w-7 h-7 border border-white/30 rounded-full flex items-center justify-center">
+                <div className="w-7 h-7 border border-[#778DA9]/40 rounded-full flex items-center justify-center">
                   <span className="font-bebas text-sm">%</span>
                 </div>
                 <p className="font-mono-dm text-[9px] mt-1 uppercase tracking-wider">Tax</p>
               </div>
-              <span className="text-white/25 text-lg">→</span>
+              <span className="text-[#E0E1DD]/25 text-lg">→</span>
               <div className="text-center">
                 <ReceiptIcon size={26} />
                 <p className="font-mono-dm text-[9px] mt-1 uppercase tracking-wider">Bills</p>
@@ -340,7 +351,7 @@ export default function Dashboard() {
 
         {/* PLANNING */}
         <A style={trail[11]} className={CARD}>
-          <p className="font-bebas text-xl tracking-widest text-white/90 mb-3">PLANNING</p>
+          <p className="font-bebas text-xl tracking-widest text-[#E0E1DD] mb-3">PLANNING</p>
           <div className="flex gap-3">
             <CalendarIcon size={40} />
             <ul className="space-y-2">
@@ -349,7 +360,7 @@ export default function Dashboard() {
                 { label: "Retirement",     done: true },
                 { label: "Major Purchase", done: false },
               ].map((item) => (
-                <li key={item.label} className="flex items-center gap-2 font-mono-dm text-xs text-white/70">
+                <li key={item.label} className="flex items-center gap-2 font-mono-dm text-xs text-[#E0E1DD]/70">
                   <CheckCircle checked={item.done} />
                   {item.label}
                 </li>
@@ -368,7 +379,7 @@ export default function Dashboard() {
         {/* ── Row 5: Bottom strip ── */}
         <A
           style={trail[13]}
-          className="border border-white/10 rounded-xl bg-[#111111] col-span-4 grid grid-cols-4 gap-0"
+          className="border border-[#415A77]/40 rounded-xl bg-[#1B263B] col-span-4 grid grid-cols-4 gap-0"
         >
           {[
             {
@@ -398,7 +409,7 @@ export default function Dashboard() {
           ].map((s, i) => (
             <div
               key={i}
-              className={`flex items-center gap-3 px-6 py-4 ${i < 3 ? "border-r border-white/10" : ""}`}
+              className={`flex items-center gap-3 px-6 py-4 ${i < 3 ? "border-r border-[#415A77]/40" : ""}`}
             >
               <BottomStat {...s} />
             </div>

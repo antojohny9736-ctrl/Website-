@@ -3,9 +3,18 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+:root {
+  /* ── Deep Sea palette ── */
+  --ds-bg:      #0D1B2A;
+  --ds-surface: #1B263B;
+  --ds-accent:  #415A77;
+  --ds-muted:   #778DA9;
+  --ds-text:    #E0E1DD;
+}
+
 html, body {
-  background: #0a0a0a;
-  color: #ffffff;
+  background: var(--ds-bg);
+  color: var(--ds-text);
   font-family: 'Space Grotesk', sans-serif;
   overflow-x: hidden;
   min-height: 100vh;
