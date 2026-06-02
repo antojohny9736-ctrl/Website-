@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Finora — Your Money. In Motion.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #080B10;
+      --surface:   #0E1117;
+      --card:      #13171F;
+      --border:    rgba(255,255,255,0.07);
+      --accent:    #7B61FF;
+      --accent2:   #00D4AA;
+      --text:      #F0F2F5;
+      --muted:     #6B7280;
+      --tag-bg:    rgba(123,97,255,0.12);
+      --tag-border:rgba(123,97,255,0.3);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 48px;
+      background: rgba(8,11,16,0.75);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .logo {
+      font-size: 1.25rem; font-weight: 700; letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #fff 30%, var(--accent));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      color: var(--muted); font-size: .875rem; text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      padding: 10px 22px; border-radius: 10px; font-size: .875rem;
+      font-weight: 600; cursor: pointer; border: none;
+      background: var(--accent); color: #fff;
+      transition: opacity .2s, transform .15s;
+    }
+    .nav-cta:hover { opacity: .85; transform: translateY(-1px); }
+
+    /* ── TAGS ── */
+    .tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 5px 12px; border-radius: 20px; font-size: .75rem;
+      font-weight: 500; letter-spacing: .4px; text-transform: uppercase;
+      background: var(--tag-bg); border: 1px solid var(--tag-border);
+      color: #A594FF;
+    }
+    .tag.green {
+      background: rgba(0,212,170,.1); border-color: rgba(0,212,170,.3);
+      color: var(--accent2);
+    }
+    .tag.white {
+      background: rgba(255,255,255,.06); border-color: var(--border);
+      color: var(--muted);
+    }
+    .tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: center; text-align: center;
+      padding: 120px 24px 80px;
+      position: relative; overflow: hidden;
+    }
+    .hero-glow {
+      position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+      width: 800px; height: 800px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(123,97,255,.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-tag { margin-bottom: 28px; }
+    .hero h1 {
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      font-weight: 900; line-height: 1.08;
+      letter-spacing: -2px;
+      background: linear-gradient(160deg, #ffffff 40%, #8B7CF6 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      max-width: 14ch; margin: 0 auto 24px;
+    }
+    .hero p {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--muted); max-width: 48ch; margin: 0 auto 40px;
+      font-weight: 400; line-height: 1.7;
+    }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+    .btn-primary {
+      padding: 14px 32px; border-radius: 12px; font-size: 1rem;
+      font-weight: 600; border: none; cursor: pointer;
+      background: linear-gradient(135deg, var(--accent), #5B41FF);
+      color: #fff; transition: transform .15s, box-shadow .2s;
+      box-shadow: 0 0 32px rgba(123,97,255,.35);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 48px rgba(123,97,255,.5); }
+    .btn-ghost {
+      padding: 14px 32px; border-radius: 12px; font-size: 1rem;
+      font-weight: 600; cursor: pointer;
+      background: transparent; color: var(--text);
+      border: 1px solid var(--border);
+      transition: border-color .2s, background .2s;
+    }
+    .btn-ghost:hover { border-color: rgba(255,255,255,.2); background: rgba(255,255,255,.04); }
+
+    /* ── PRODUCT MOCKUP ── */
+    .mockup-section {
+      padding: 0 24px 120px;
+      display: flex; justify-content: center;
+    }
+    .mockup-wrap {
+      position: relative; max-width: 960px; width: 100%;
+    }
+    .mockup-glow {
+      position: absolute; inset: -40px;
+      background: radial-gradient(ellipse at 50% 60%, rgba(123,97,255,.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .mockup-frame {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 40px 120px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.05);
+    }
+    .mockup-bar {
+      background: var(--surface);
+      padding: 14px 20px;
+      display: flex; align-items: center; gap: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .dot { width: 12px; height: 12px; border-radius: 50%; }
+    .dot-r { background: #FF5F57; }
+    .dot-y { background: #FEBC2E; }
+    .dot-g { background: #28C840; }
+    .mockup-url {
+      flex: 1; background: rgba(255,255,255,.05); border-radius: 6px;
+      padding: 5px 12px; font-size: .75rem; color: var(--muted);
+      text-align: center;
+    }
+    .mockup-body {
+      padding: 32px;
+      display: grid; grid-template-columns: 240px 1fr; gap: 24px;
+    }
+    .mock-sidebar {
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    .mock-nav-item {
+      padding: 10px 14px; border-radius: 10px; font-size: .8rem;
+      color: var(--muted); cursor: pointer; transition: background .2s;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .mock-nav-item.active { background: rgba(123,97,255,.15); color: #A594FF; }
+    .mock-nav-item:hover:not(.active) { background: rgba(255,255,255,.04); }
+    .mock-icon { width: 16px; height: 16px; border-radius: 4px; background: currentColor; opacity: .6; }
+    .mock-main { display: flex; flex-direction: column; gap: 20px; }
+    .mock-header { display: flex; align-items: center; justify-content: space-between; }
+    .mock-header h2 { font-size: 1.1rem; font-weight: 600; }
+    .mock-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .stat-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 18px;
+    }
+    .stat-label { font-size: .7rem; color: var(--muted); text-transform: uppercase; letter-spacing: .6px; margin-bottom: 8px; }
+    .stat-value { font-size: 1.4rem; font-weight: 700; }
+    .stat-value.up { color: var(--accent2); }
+    .stat-value.purple { color: #A594FF; }
+    .stat-delta { font-size: .72rem; color: var(--accent2); margin-top: 4px; }
+    .mock-chart {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 20px; height: 140px;
+      display: flex; align-items: flex-end; gap: 8px; overflow: hidden;
+    }
+    .bar-group { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; height: 100%; justify-content: flex-end; }
+    .bar {
+      width: 100%; border-radius: 6px 6px 0 0;
+      transition: opacity .2s;
+    }
+    .bar:hover { opacity: .8; }
+
+    /* ── FEATURES ── */
+    .features {
+      padding: 100px 24px;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .section-tag { display: flex; justify-content: center; margin-bottom: 20px; }
+    .section-title {
+      text-align: center; font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800; letter-spacing: -1px; margin-bottom: 16px;
+    }
+    .section-sub {
+      text-align: center; color: var(--muted); max-width: 44ch;
+      margin: 0 auto 64px; font-size: 1.05rem;
+    }
+    .features-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .feature-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 20px; padding: 32px;
+      transition: border-color .3s, transform .3s;
+      position: relative; overflow: hidden;
+    }
+    .feature-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(123,97,255,.5), transparent);
+      opacity: 0; transition: opacity .3s;
+    }
+    .feature-card:hover { border-color: rgba(123,97,255,.3); transform: translateY(-4px); }
+    .feature-card:hover::before { opacity: 1; }
+    .feature-icon {
+      width: 48px; height: 48px; border-radius: 14px; margin-bottom: 20px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+      background: rgba(123,97,255,.1); border: 1px solid rgba(123,97,255,.2);
+    }
+    .feature-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; }
+    .feature-card p { color: var(--muted); font-size: .9rem; line-height: 1.65; }
+
+    /* ── SOCIAL PROOF ── */
+    .proof {
+      padding: 80px 24px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .proof-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 48px; flex-wrap: wrap;
+    }
+    .proof-stat { text-align: center; }
+    .proof-stat .num {
+      font-size: 2.5rem; font-weight: 900; letter-spacing: -1px;
+      background: linear-gradient(135deg, #fff, var(--accent));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .proof-stat .label { color: var(--muted); font-size: .875rem; margin-top: 4px; }
+    .proof-divider { width: 1px; height: 60px; background: var(--border); }
+
+    /* ── CTA SECTION ── */
+    .cta-section {
+      padding: 120px 24px;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .cta-glow {
+      position: absolute; bottom: -200px; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,212,170,.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-section h2 {
+      font-size: clamp(2rem, 5vw, 4rem); font-weight: 900;
+      letter-spacing: -1.5px; margin-bottom: 20px;
+      background: linear-gradient(160deg, #fff 50%, var(--accent2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .cta-section p { color: var(--muted); font-size: 1.1rem; margin-bottom: 40px; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 24px;
+    }
+    .footer-logo {
+      font-size: 1.1rem; font-weight: 700;
+      background: linear-gradient(135deg, #fff 30%, var(--accent));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .footer-tagline { color: var(--muted); font-size: .8rem; margin-top: 4px; }
+    .footer-links { display: flex; gap: 28px; }
+    .footer-links a { color: var(--muted); font-size: .875rem; text-decoration: none; transition: color .2s; }
+    .footer-links a:hover { color: var(--text); }
+    .footer-legal { color: var(--muted); font-size: .75rem; }
+
+    @media (max-width: 768px) {
+      nav { padding: 16px 20px; }
+      .nav-links { display: none; }
+      .mockup-body { grid-template-columns: 1fr; }
+      .mock-sidebar { display: none; }
+      .features-grid { grid-template-columns: 1fr; }
+      .mock-stats { grid-template-columns: repeat(2, 1fr); }
+      .proof-divider { display: none; }
+      footer { flex-direction: column; text-align: center; }
+      .footer-links { flex-wrap: wrap; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Finora</div>
+  <ul class="nav-links">
+    <li><a href="#features">Features</a></li>
+    <li><a href="#product">Product</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#blog">Blog</a></li>
+  </ul>
+  <button class="nav-cta">Get Started</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-tag">
+    <span class="tag">✦ Now in Public Beta</span>
+  </div>
+  <h1>Your Money.<br/>In Motion.</h1>
+  <p>Finora turns every dollar into a decision — intelligent, instant, and entirely yours. The financial OS for people who move.</p>
+  <div class="hero-actions">
+    <button class="btn-primary">Start for Free</button>
+    <button class="btn-ghost">Watch the Story ↗</button>
+  </div>
+</section>
+
+<!-- PRODUCT MOCKUP -->
+<section class="mockup-section" id="product">
+  <div class="mockup-wrap">
+    <div class="mockup-glow"></div>
+    <div class="mockup-frame">
+      <div class="mockup-bar">
+        <div class="dot dot-r"></div>
+        <div class="dot dot-y"></div>
+        <div class="dot dot-g"></div>
+        <div class="mockup-url">app.finora.io/dashboard</div>
+      </div>
+      <div class="mockup-body">
+        <div class="mock-sidebar">
+          <div style="font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;padding:8px 14px 4px;">Main</div>
+          <div class="mock-nav-item active"><span class="mock-icon"></span>Overview</div>
+          <div class="mock-nav-item"><span class="mock-icon"></span>Transactions</div>
+          <div class="mock-nav-item"><span class="mock-icon"></span>Investments</div>
+          <div class="mock-nav-item"><span class="mock-icon"></span>Budget</div>
+          <div style="font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;padding:20px 14px 4px;">Insights</div>
+          <div class="mock-nav-item"><span class="mock-icon"></span>Forecasts</div>
+          <div class="mock-nav-item"><span class="mock-icon"></span>Goals</div>
+          <div class="mock-nav-item"><span class="mock-icon"></span>Reports</div>
+        </div>
+        <div class="mock-main">
+          <div class="mock-header">
+            <h2>Good morning, Alex ✦</h2>
+            <span class="tag green">All systems live</span>
+          </div>
+          <div class="mock-stats">
+            <div class="stat-card">
+              <div class="stat-label">Net Worth</div>
+              <div class="stat-value purple">$84,210</div>
+              <div class="stat-delta">↑ 3.4% this month</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Monthly Spend</div>
+              <div class="stat-value">$3,420</div>
+              <div class="stat-delta" style="color:var(--muted);">↓ $180 vs last month</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Investments</div>
+              <div class="stat-value up">$41,800</div>
+              <div class="stat-delta">↑ 7.1% YTD</div>
+            </div>
+          </div>
+          <div class="mock-chart">
+            <div class="bar-group"><div class="bar" style="height:55%;background:rgba(123,97,255,.3)"></div></div>
+            <div class="bar-group"><div class="bar" style="height:70%;background:rgba(123,97,255,.4)"></div></div>
+            <div class="bar-group"><div class="bar" style="height:48%;background:rgba(123,97,255,.3)"></div></div>
+            <div class="bar-group"><div class="bar" style="height:82%;background:rgba(123,97,255,.5)"></div></div>
+            <div class="bar-group"><div class="bar" style="height:65%;background:rgba(123,97,255,.4)"></div></div>
+            <div class="bar-group"><div class="bar" style="height:90%;background:linear-gradient(to top,#7B61FF,#A594FF)"></div></div>
+            <div class="bar-group"><div class="bar" style="height:74%;background:rgba(123,97,255,.4)"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section class="proof">
+  <div class="proof-inner">
+    <div class="proof-stat">
+      <div class="num">$2.4B+</div>
+      <div class="label">Assets Tracked</div>
+    </div>
+    <div class="proof-divider"></div>
+    <div class="proof-stat">
+      <div class="num">180K+</div>
+      <div class="label">Active Users</div>
+    </div>
+    <div class="proof-divider"></div>
+    <div class="proof-stat">
+      <div class="num">99.98%</div>
+      <div class="label">Uptime</div>
+    </div>
+    <div class="proof-divider"></div>
+    <div class="proof-stat">
+      <div class="num">4.9 ★</div>
+      <div class="label">App Store Rating</div>
+    </div>
+    <div class="proof-divider"></div>
+    <div class="proof-stat">
+      <div class="num">SOC 2</div>
+      <div class="label">Type II Certified</div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="section-tag"><span class="tag">Features</span></div>
+  <h2 class="section-title">Built different. By design.</h2>
+  <p class="section-sub">Everything you need to command your finances — nothing you don't.</p>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">👁</div>
+      <h3>See Everything</h3>
+      <p>One screen. Every account, every transaction, every trend. Finora maps your financial world so nothing ever hides in the dark.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">⚡</div>
+      <h3>Move Fast</h3>
+      <p>Send, save, or invest in seconds. No friction. No waiting. Finora executes at the speed of your intentions.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔮</div>
+      <h3>Think Ahead</h3>
+      <p>AI-powered forecasts that read your patterns and surface what's coming — before your balance does.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔒</div>
+      <h3>Bank-Grade Security</h3>
+      <p>256-bit encryption, biometric auth, and SOC 2 Type II certification. Your data stays yours — always.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📊</div>
+      <h3>Live Portfolio</h3>
+      <p>Stocks, ETFs, crypto, real estate — unified in a single view with real-time pricing and P&L tracking.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🎯</div>
+      <h3>Smart Goals</h3>
+      <p>Set a target, set a date. Finora reverse-engineers your savings plan and keeps you on track automatically.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-glow"></div>
+  <span class="tag green" style="margin-bottom:24px;display:inline-flex;">Free forever plan available</span>
+  <h2>Start Moving<br/>Your Money.</h2>
+  <p>Join 180,000+ people who stopped guessing and started knowing.</p>
+  <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+    <button class="btn-primary">Create Free Account</button>
+    <button class="btn-ghost">Talk to Sales</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">Finora</div>
+    <div class="footer-tagline">Built for people who move.</div>
+  </div>
+  <div class="footer-links">
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+    <a href="#">Security</a>
+    <a href="#">Careers</a>
+    <a href="#">Status</a>
+  </div>
+  <div class="footer-legal">© 2026 Finora Inc. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
