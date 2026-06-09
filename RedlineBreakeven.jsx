@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from "react";
-import { Coffee, Gamepad2, IdCard, Receipt, Wrench, RotateCcw } from "lucide-react";
+import { Coffee, Gamepad2, CreditCard, Receipt, Wrench, RotateCcw } from "lucide-react";
 
 // ---- Brand palette (inline styles; Tailwind core utilities used for layout) ----
 const C = {
@@ -286,7 +286,7 @@ export default function RedlineBreakeven() {
               <Field label="Booked hrs / rig / day" value={v.utilHours} onChange={set("utilHours")} step={0.5} />
             </Section>
 
-            <Section icon={IdCard} title="Membership">
+            <Section icon={CreditCard} title="Membership">
               <Field label="Members" value={v.members} onChange={set("members")} />
               <Field label="Fee / month" value={v.memberFee} onChange={set("memberFee")} prefix="$" />
             </Section>
