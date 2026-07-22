@@ -140,7 +140,7 @@ section { position: relative; }
   gap: 10px;
   color: var(--white);
 }
-.brand__mark { width: 26px; height: 26px; color: var(--yellow); flex-shrink: 0; }
+.brand__mark { width: 32px; height: 31px; color: var(--yellow); flex-shrink: 0; }
 .brand__name { font-weight: 800; font-size: 17px; letter-spacing: -0.01em; }
 .brand__amp { color: var(--yellow); padding: 0 1px; }
 
