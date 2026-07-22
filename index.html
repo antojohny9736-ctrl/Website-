@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Whips &amp; Shine — Premium Mobile Detailing</title>
+<meta name="description" content="Whips &amp; Shine delivers premium mobile car detailing — we come to you. Exterior, interior, and full-detail packages with meticulous, showroom-grade care.">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ===== NAV ===== -->
+<header class="navbar" id="navbar">
+  <div class="navbar__inner">
+    <a href="#top" class="brand">
+      <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+        <path d="M14 46 L22 18 L28 18 L24 34 L33 18 L39 18 L30 46 L24 46 L27 35 L21 46 Z" fill="currentColor"/>
+        <path d="M37 46 L45 18 L51 18 L43 46 Z" fill="currentColor" opacity="0.55"/>
+      </svg>
+      <span class="brand__name">Whips<span class="brand__amp">&amp;</span>Shine</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#why">Why Us</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <a href="#contact" class="btn btn--nav">Get a Quote</a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services">Services</a>
+    <a href="#process">Process</a>
+    <a href="#why">Why Us</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact" class="btn btn--full">Get a Quote</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="top">
+    <div class="hero__glow" aria-hidden="true"></div>
+    <p class="eyebrow reveal">Mobile Detailing · We Come To You</p>
+    <h1 class="hero__title">
+      <span class="reveal" style="--d:0">Your car.</span>
+      <span class="reveal reveal--accent" style="--d:1">Reborn.</span>
+    </h1>
+    <p class="hero__sub reveal" style="--d:2">
+      Whips &amp; Shine brings showroom-grade exterior and interior detailing straight to your
+      driveway — obsessive attention to every panel, every stitch, every surface.
+    </p>
+    <div class="hero__cta reveal" style="--d:3">
+      <a href="#contact" class="btn btn--primary">Book a Detail</a>
+      <a href="#transform" class="btn btn--ghost">Watch It Happen ↓</a>
+    </div>
+    <div class="scroll-cue" aria-hidden="true"><span></span></div>
+  </section>
+
+  <!-- ===== SCROLL TRANSFORMATION ===== -->
+  <section class="wash" id="transform">
+    <div class="wash__sticky">
+
+      <div class="wash__copy">
+        <div class="wash__phase wash__phase--intro" data-phase="intro">
+          <p class="wash__eyebrow">The Whips &amp; Shine Difference</p>
+          <h2 class="wash__headline">Dirt in.<br>Shine out.</h2>
+        </div>
+        <div class="wash__phase wash__phase--final" data-phase="final">
+          <h2 class="wash__headline wash__headline--final">Whips&amp;Shine.<br>Detailed to perfection.</h2>
+          <a href="#contact" class="btn btn--primary wash__cta">Book Your Transformation</a>
+        </div>
+      </div>
+
+      <div class="wash__stage">
+        <svg class="car" viewBox="0 0 900 320" role="img" aria-label="Animated illustration of a dirty car being washed and detailed until it shines">
+          <defs>
+            <clipPath id="carBodyClip">
+              <path d="M90,236 C90,208 104,186 132,176 L168,175 C205,128 262,92 332,90 L560,90 C620,94 664,128 698,175 L734,178 C764,188 800,206 800,232 L800,236 Z"/>
+            </clipPath>
+            <clipPath id="carGlassClip">
+              <path d="M198,174 C222,140 270,106 332,102 L558,102 C614,106 656,138 684,172 L620,180 L260,180 Z"/>
+            </clipPath>
+            <clipPath id="wipeClip">
+              <rect id="wipeRect" x="0" y="0" width="0" height="320"/>
+            </clipPath>
+
+            <linearGradient id="gradClean" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#FFE477"/>
+              <stop offset="55%" stop-color="#FFC300"/>
+              <stop offset="100%" stop-color="#E6A800"/>
+            </linearGradient>
+            <linearGradient id="gradGlassClean" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#3a3a3a"/>
+              <stop offset="100%" stop-color="#151515"/>
+            </linearGradient>
+            <linearGradient id="gradDirty" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#9a8460"/>
+              <stop offset="100%" stop-color="#5c4d38"/>
+            </linearGradient>
+            <linearGradient id="gradGlassDirty" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#8d8371"/>
+              <stop offset="100%" stop-color="#5f5748"/>
+            </linearGradient>
+            <radialGradient id="sponge" cx="35%" cy="30%" r="75%">
+              <stop offset="0%" stop-color="#ffffff"/>
+              <stop offset="65%" stop-color="#eef6ff"/>
+              <stop offset="100%" stop-color="#bcd6e8"/>
+            </radialGradient>
+            <linearGradient id="shineSweep" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
+              <stop offset="50%" stop-color="#ffffff" stop-opacity="0.85"/>
+              <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+            </linearGradient>
+
+            <filter id="grime" x="-20%" y="-20%" width="140%" height="140%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7" result="noise"/>
+              <feColorMatrix in="noise" type="matrix"
+                values="0 0 0 0 0.25
+                        0 0 0 0 0.2
+                        0 0 0 0 0.12
+                        0 0 0 0.5 0" result="dirt"/>
+              <feComposite in="dirt" in2="SourceGraphic" operator="over"/>
+            </filter>
+            <filter id="softBlur" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="3"/>
+            </filter>
+          </defs>
+
+          <!-- ground shadow -->
+          <ellipse cx="445" cy="278" rx="380" ry="18" fill="#000000" opacity="0.45"/>
+
+          <!-- ===== DIRTY (base) LAYER ===== -->
+          <g id="dirtyLayer">
+            <g clip-path="url(#carBodyClip)">
+              <path d="M90,236 C90,208 104,186 132,176 L168,175 C205,128 262,92 332,90 L560,90 C620,94 664,128 698,175 L734,178 C764,188 800,206 800,232 L800,236 Z" fill="url(#gradDirty)"/>
+              <rect x="70" y="70" width="760" height="200" filter="url(#grime)" opacity="0.55"/>
+              <g opacity="0.5" filter="url(#softBlur)">
+                <ellipse cx="180" cy="150" rx="30" ry="16" fill="#3c2f1f"/>
+                <ellipse cx="420" cy="115" rx="46" ry="14" fill="#3c2f1f"/>
+                <ellipse cx="600" cy="140" rx="26" ry="20" fill="#33281a"/>
+                <ellipse cx="740" cy="205" rx="34" ry="18" fill="#3c2f1f"/>
+                <ellipse cx="250" cy="215" rx="40" ry="14" fill="#33281a"/>
+                <ellipse cx="520" cy="220" rx="50" ry="16" fill="#3c2f1f"/>
+              </g>
+            </g>
+            <g clip-path="url(#carGlassClip)">
+              <path d="M198,174 C222,140 270,106 332,102 L558,102 C614,106 656,138 684,172 L620,180 L260,180 Z" fill="url(#gradGlassDirty)"/>
+              <rect x="180" y="95" width="520" height="95" filter="url(#grime)" opacity="0.4"/>
+            </g>
+          </g>
+
+          <!-- ===== CLEAN LAYER (revealed by wipe) ===== -->
+          <g id="cleanLayer" clip-path="url(#wipeClip)">
+            <g clip-path="url(#carBodyClip)">
+              <path d="M90,236 C90,208 104,186 132,176 L168,175 C205,128 262,92 332,90 L560,90 C620,94 664,128 698,175 L734,178 C764,188 800,206 800,232 L800,236 Z" fill="url(#gradClean)"/>
+              <!-- door seam + accents -->
+              <path d="M430,176 L430,236" stroke="#1a1200" stroke-opacity="0.25" stroke-width="2"/>
+              <path d="M90,236 L800,236" stroke="#1a1200" stroke-opacity="0.2" stroke-width="3"/>
+              <rect x="70" y="150" width="760" height="6" fill="#111111" opacity="0.12"/>
+              <!-- shine sweep -->
+              <rect id="shineRect" x="-260" y="70" width="220" height="180" fill="url(#shineSweep)" transform="skewX(-18)"/>
+            </g>
+            <g clip-path="url(#carGlassClip)">
+              <path d="M198,174 C222,140 270,106 332,102 L558,102 C614,106 656,138 684,172 L620,180 L260,180 Z" fill="url(#gradGlassClean)"/>
+              <path d="M215,168 C260,132 300,112 332,106" stroke="#ffffff" stroke-opacity="0.18" stroke-width="10" fill="none"/>
+            </g>
+            <!-- lights -->
+            <ellipse cx="104" cy="206" rx="9" ry="13" fill="#FFF7D6"/>
+            <ellipse cx="789" cy="206" rx="7" ry="14" fill="#B3231C"/>
+            <!-- mirror -->
+            <path d="M205,168 C196,160 196,150 206,146 L216,152 C214,160 212,166 209,171 Z" fill="url(#gradClean)"/>
+            <!-- spoiler -->
+            <rect x="700" y="82" width="40" height="7" rx="2" fill="#151515" transform="rotate(-4 700 82)"/>
+          </g>
+
+          <!-- wheels (always on top, static) -->
+          <g id="wheels">
+            <circle cx="250" cy="236" r="46" fill="#0d0d0d"/>
+            <circle cx="250" cy="236" r="24" fill="#c9c9c9"/>
+            <circle cx="250" cy="236" r="7" fill="#3a3a3a"/>
+            <circle cx="642" cy="236" r="46" fill="#0d0d0d"/>
+            <circle cx="642" cy="236" r="24" fill="#c9c9c9"/>
+            <circle cx="642" cy="236" r="7" fill="#3a3a3a"/>
+          </g>
+
+          <!-- sponge / wash pad -->
+          <g id="spongeGroup">
+            <ellipse cx="0" cy="0" rx="34" ry="26" fill="url(#sponge)" stroke="#ffffff" stroke-width="1"/>
+            <ellipse cx="0" cy="0" rx="34" ry="26" fill="none" stroke="#FFD60A" stroke-width="2" opacity="0.6"/>
+          </g>
+
+          <!-- suds trail -->
+          <g id="sudsGroup" opacity="0.9"></g>
+
+          <!-- sparkles -->
+          <g id="sparkleGroup"></g>
+
+          <!-- water droplets -->
+          <g id="dropletGroup"></g>
+        </svg>
+      </div>
+
+      <div class="wash__progress" aria-hidden="true"><div class="wash__progress-bar" id="washProgressBar"></div></div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section class="services" id="services">
+    <p class="eyebrow reveal-on-scroll">Services</p>
+    <h2 class="section-title reveal-on-scroll">Built around your car.<br>Delivered to your door.</h2>
+
+    <div class="cards">
+      <article class="card reveal-on-scroll">
+        <div class="card__icon">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 30c4-14 12-20 18-20s14 6 18 20" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="14" cy="34" r="4" stroke="currentColor" stroke-width="2.5" fill="none"/><circle cx="34" cy="34" r="4" stroke="currentColor" stroke-width="2.5" fill="none"/><path d="M6 30h36" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Exterior Detailing</h3>
+        <p>Hand wash, clay bar decontamination, machine polish, and a durable wax or sealant — leaving paint deep, glossy, and protected.</p>
+        <ul class="card__list">
+          <li>Two-bucket hand wash &amp; wheel decontamination</li>
+          <li>Clay bar treatment for glass-smooth paint</li>
+          <li>Machine polish &amp; premium sealant/wax</li>
+          <li>Tires, trim &amp; glass finished to a streak-free shine</li>
+        </ul>
+      </article>
+
+      <article class="card card--featured reveal-on-scroll">
+        <span class="card__badge">Most Popular</span>
+        <div class="card__icon">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 4 30 18 44 20 34 30 37 44 24 37 11 44 14 30 4 20 18 18Z" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>The Full Detail</h3>
+        <p>Our signature head-to-toe treatment — the complete exterior &amp; interior package for a truly showroom-fresh finish, done in your driveway.</p>
+        <ul class="card__list">
+          <li>Everything in Exterior + Interior Detailing</li>
+          <li>Engine bay wipe-down &amp; door jambs</li>
+          <li>Final quality walk-around inspection</li>
+          <li>Best value for a complete transformation</li>
+        </ul>
+      </article>
+
+      <article class="card reveal-on-scroll">
+        <div class="card__icon">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="8" y="10" width="32" height="24" rx="3" stroke="currentColor" stroke-width="2.5" fill="none"/><path d="M8 30 18 20 26 26 32 18 40 26" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 38h40" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Interior Detailing</h3>
+        <p>Deep vacuum, steam cleaning, leather conditioning, and odor elimination — every surface refreshed, front seat to trunk.</p>
+        <ul class="card__list">
+          <li>Full vacuum &amp; deep steam clean</li>
+          <li>Leather cleaning &amp; conditioning</li>
+          <li>Carpet &amp; upholstery shampoo</li>
+          <li>Odor removal &amp; interior glass polish</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== PROCESS ===== -->
+  <section class="process" id="process">
+    <p class="eyebrow reveal-on-scroll">How It Works</p>
+    <h2 class="section-title reveal-on-scroll">Simple to book.<br>Meticulous in every detail.</h2>
+
+    <div class="steps">
+      <div class="step reveal-on-scroll">
+        <span class="step__num">01</span>
+        <h3>Book Online</h3>
+        <p>Pick your package and a time that fits your day — we'll confirm your appointment fast.</p>
+      </div>
+      <div class="step reveal-on-scroll">
+        <span class="step__num">02</span>
+        <h3>We Come To You</h3>
+        <p>Our fully-equipped mobile unit arrives at your home or office — no drop-off required.</p>
+      </div>
+      <div class="step reveal-on-scroll">
+        <span class="step__num">03</span>
+        <h3>Meticulous Detail</h3>
+        <p>Every panel, seam, and surface is treated by hand with premium, paint-safe products.</p>
+      </div>
+      <div class="step reveal-on-scroll">
+        <span class="step__num">04</span>
+        <h3>Final Inspection</h3>
+        <p>We walk the car with you to make sure every inch meets the Whips &amp; Shine standard.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY US ===== -->
+  <section class="why" id="why">
+    <p class="eyebrow reveal-on-scroll">Why Whips &amp; Shine</p>
+    <h2 class="section-title reveal-on-scroll">Premium, without the compromise.</h2>
+
+    <div class="why__grid">
+      <div class="why__item reveal-on-scroll">
+        <div class="why__icon">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 24c0-9 8-17 18-17s18 8 18 17" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M4 24h8v14H4z" stroke="currentColor" stroke-width="2.5" fill="none"/><path d="M36 24h8v14h-8z" stroke="currentColor" stroke-width="2.5" fill="none"/></svg>
+        </div>
+        <h3>Fully Mobile</h3>
+        <p>We bring water, power, and every tool we need — you don't lift a finger.</p>
+      </div>
+      <div class="why__item reveal-on-scroll">
+        <div class="why__icon">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 4 30 18 44 20 34 30 37 44 24 37 11 44 14 30 4 20 18 18Z" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Premium Products</h3>
+        <p>pH-balanced, paint-safe formulas chosen for a lasting, showroom-grade finish.</p>
+      </div>
+      <div class="why__item reveal-on-scroll">
+        <div class="why__icon">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 4 6 12v10c0 12 8 20 18 22 10-2 18-10 18-22V12Z" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linejoin="round"/><path d="M16 24l6 6 12-12" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Satisfaction Guaranteed</h3>
+        <p>Not happy with a spot? We'll come back and make it right.</p>
+      </div>
+      <div class="why__item reveal-on-scroll">
+        <div class="why__icon">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="19" stroke="currentColor" stroke-width="2.5" fill="none"/><path d="M24 13v11l8 5" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Flexible Scheduling</h3>
+        <p>Evenings, weekends, driveway or office lot — we work around your life.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="contact" id="contact">
+    <p class="eyebrow reveal-on-scroll">Get In Touch</p>
+    <h2 class="section-title reveal-on-scroll">Let's make it shine.</h2>
+    <p class="contact__lede reveal-on-scroll">
+      Reach out any way that's easiest — we typically respond within one business day.
+    </p>
+
+    <div class="contact__tiles reveal-on-scroll">
+      <a class="tile" href="mailto:hello@whipsandshine.com">
+        <div class="tile__icon">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="10" width="38" height="28" rx="4" stroke="currentColor" stroke-width="2.5" fill="none"/><path d="M6 13l18 14L42 13" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <span class="tile__label">Email</span>
+        <span class="tile__value">hello@whipsandshine.com</span>
+        <span class="tile__hint">Placeholder — replace with your real email</span>
+      </a>
+
+      <a class="tile" href="tel:+15550000000">
+        <div class="tile__icon">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 6c2 0 6 1 7 4 1 3-1 5-2 6-1 1-1 2 0 4 2 4 5 7 9 9 2 1 3 1 4 0 1-1 3-3 6-2 3 1 4 5 4 7 0 3-3 5-6 5C19 39 9 29 9 16 9 13 7 6 10 6Z" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linejoin="round"/></svg>
+        </div>
+        <span class="tile__label">Phone</span>
+        <span class="tile__value">+1 (555) 000-0000</span>
+        <span class="tile__hint">Placeholder — replace with your real number</span>
+      </a>
+
+      <div class="tile tile--static">
+        <div class="tile__icon">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 44s14-13.5 14-24A14 14 0 0 0 10 20c0 10.5 14 24 14 24Z" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linejoin="round"/><circle cx="24" cy="20" r="5" stroke="currentColor" stroke-width="2.5" fill="none"/></svg>
+        </div>
+        <span class="tile__label">Service Area</span>
+        <span class="tile__value">Your City &amp; Surrounding Areas</span>
+        <span class="tile__hint">Placeholder — set your real coverage area</span>
+      </div>
+    </div>
+
+    <div class="quote-form reveal-on-scroll">
+      <div class="quote-form__intro">
+        <h3>Request a Quote</h3>
+        <p>Tell us about your vehicle and we'll follow up with pricing — this opens your email app addressed to us, ready to send.</p>
+      </div>
+      <form id="quoteForm" novalidate>
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" autocomplete="tel">
+        </div>
+        <div class="field">
+          <label for="vehicle">Vehicle (Year / Make / Model)</label>
+          <input type="text" id="vehicle" name="vehicle" placeholder="e.g. 2021 Honda Civic">
+        </div>
+        <div class="field field--full">
+          <label for="message">What are you looking for?</label>
+          <textarea id="message" name="message" rows="4" placeholder="Full Detail, Exterior only, preferred date/time..."></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary field--full">Send Request</button>
+        <p class="field__status" id="formStatus" role="status"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer__top">
+    <a href="#top" class="brand brand--footer">
+      <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+        <path d="M14 46 L22 18 L28 18 L24 34 L33 18 L39 18 L30 46 L24 46 L27 35 L21 46 Z" fill="currentColor"/>
+        <path d="M37 46 L45 18 L51 18 L43 46 Z" fill="currentColor" opacity="0.55"/>
+      </svg>
+      <span class="brand__name">Whips<span class="brand__amp">&amp;</span>Shine</span>
+    </a>
+    <nav class="footer__links" aria-label="Footer">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#why">Why Us</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="footer__social" aria-label="Social links">
+      <a href="#" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.8" fill="none"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.8" fill="none"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor"/></svg>
+      </a>
+      <a href="#" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 21v-7h2.5l.5-3H14v-2c0-.9.3-1.5 1.7-1.5H17V4.7c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.1V11H8v3h2.6v7Z" fill="currentColor"/></svg>
+      </a>
+      <a href="#" aria-label="TikTok">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3c.4 2.2 1.8 3.6 4 3.9v2.7c-1.4 0-2.7-.4-4-1.2v6.1a5.1 5.1 0 1 1-4.4-5v2.7a2.4 2.4 0 1 0 1.8 2.3V3Z" fill="currentColor"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <p>© <span id="year"></span> Whips &amp; Shine Mobile Detailing. All rights reserved.</p>
+    <p class="footer__note">Site content includes placeholder contact details — update with your real information before launch.</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
